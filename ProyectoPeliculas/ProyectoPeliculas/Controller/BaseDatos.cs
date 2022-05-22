@@ -10,8 +10,8 @@ namespace ProyectoPeliculas.Controller
     public class BaseDatos
     {
         public static MySqlConnection cone = new MySqlConnection();
-        static string server = "Server = 127.0.0.1;";
-        static string db = " Database = peliculas;";
+        static string server = "Server = localhost;";
+        static string db = " Database = proyecto;";
         static string user = " UID=root;";
         static string password = " Password=rest;";
         public string CadenaConexion = server + db + user + password;

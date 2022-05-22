@@ -21,3 +21,10 @@ C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeli
 C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\obj\Debug\net6.0-windows\ProyectoPeliculas.csproj.CopyComplete
 C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\MjFramework.dll
 C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\MjFramework.pdb
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\Google.Protobuf.dll
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\K4os.Compression.LZ4.dll
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\K4os.Hash.xxHash.dll
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\ZstdNet.dll

@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.29" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="MjFramework">
       <HintPath>..\..\..\..\..\..\..\Desktop\puntoventa\ProyectoBase\bin\Debug\MjFramework.dll</HintPath>
     </Reference>
