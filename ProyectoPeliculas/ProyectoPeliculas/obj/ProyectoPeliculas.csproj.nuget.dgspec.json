@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gustavo Macias\\source\\repos\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj": {}
+    "C:\\Users\\Gustavo Macias\\Pictures\\trabajosTec\\ProyectosTec\\Semestre4\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gustavo Macias\\source\\repos\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj": {
+    "C:\\Users\\Gustavo Macias\\Pictures\\trabajosTec\\ProyectosTec\\Semestre4\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gustavo Macias\\source\\repos\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj",
+        "projectUniqueName": "C:\\Users\\Gustavo Macias\\Pictures\\trabajosTec\\ProyectosTec\\Semestre4\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj",
         "projectName": "ProyectoPeliculas",
-        "projectPath": "C:\\Users\\Gustavo Macias\\source\\repos\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj",
+        "projectPath": "C:\\Users\\Gustavo Macias\\Pictures\\trabajosTec\\ProyectosTec\\Semestre4\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas.csproj",
         "packagesPath": "C:\\Users\\Gustavo Macias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gustavo Macias\\source\\repos\\ProyectoPeliculas\\ProyectoPeliculas\\obj\\",
+        "outputPath": "C:\\Users\\Gustavo Macias\\Pictures\\trabajosTec\\ProyectosTec\\Semestre4\\ProyectoPeliculas\\ProyectoPeliculas\\ProyectoPeliculas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gustavo Macias\\AppData\\Roaming\\NuGet\\NuGet.Config",
