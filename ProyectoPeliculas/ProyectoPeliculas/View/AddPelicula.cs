@@ -78,6 +78,8 @@ namespace ProyectoPeliculas
             }
 
             
+
+
         }
         public void limpiarDatos()
         {
@@ -86,12 +88,22 @@ namespace ProyectoPeliculas
             txtDirector.Text = "";
             txtClasificacion.Text = "";
             txtDuracion.Text = "";
-            lad.Text = "";
+            txtPrecio.Text = "";
             txtPeliculasDisponibles.Text = "";
             txtNombre.Focus();
         }
 
         private void lad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void labelAgregacion_Click(object sender, EventArgs e)
         {
 
         }

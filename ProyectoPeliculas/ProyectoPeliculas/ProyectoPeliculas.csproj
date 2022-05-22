@@ -27,6 +27,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="View\MostarPeliculas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\AddPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
