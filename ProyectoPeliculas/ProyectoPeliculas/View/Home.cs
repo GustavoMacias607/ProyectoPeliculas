@@ -18,6 +18,7 @@ namespace ProyectoPeliculas
         }
         AddPelicula agregar = new AddPelicula();
         MostarPeliculas mostrar = new MostarPeliculas();
+        AddRenta renta = new AddRenta();
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -51,6 +52,41 @@ namespace ProyectoPeliculas
         private void button2_Click(object sender, EventArgs e)
         {
             mostrar.ShowDialog();
+        }
+
+        private void panel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel8_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            renta.ShowDialog();
         }
     }
 }

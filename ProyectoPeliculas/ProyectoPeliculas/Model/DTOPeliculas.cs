@@ -8,7 +8,7 @@ namespace ProyectoPeliculas.Model
 {
     public class DTOPeliculas
     {
-        public int IdProducto { get; set; }
+        public int IdPeliculas { get; set; }
         public string Nombre { get; set; }
 
         public string Duracion { get; set; }

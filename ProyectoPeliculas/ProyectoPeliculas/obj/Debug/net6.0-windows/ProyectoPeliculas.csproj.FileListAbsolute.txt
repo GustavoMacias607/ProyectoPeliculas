@@ -29,3 +29,5 @@ C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeli
 C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\Ubiety.Dns.Core.dll
 C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\bin\Debug\net6.0-windows\ZstdNet.dll
 C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\obj\Debug\net6.0-windows\ProyectoPeliculas.MostarPeliculas.resources
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\obj\Debug\net6.0-windows\ProyectoPeliculas.AddRenta.resources
+C:\Users\Gustavo Macias\Pictures\trabajosTec\ProyectosTec\Semestre4\ProyectoPeliculas\ProyectoPeliculas\ProyectoPeliculas\obj\Debug\net6.0-windows\ProyectoPeliculas.UpdatePelicula.resources

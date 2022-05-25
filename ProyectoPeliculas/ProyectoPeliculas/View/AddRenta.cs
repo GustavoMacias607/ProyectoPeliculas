@@ -12,24 +12,48 @@ using System.Windows.Forms;
 
 namespace ProyectoPeliculas
 {
-    public partial class AddPelicula : Form
+    public partial class AddRenta : Form
     {
-        public AddPelicula()
+        public AddRenta()
         {
             InitializeComponent();
         }
 
-        
+
+
+        DAOPeliculas1 dao = new DAOPeliculas1();
+
+        public void obtenerPeliculas()
+        {
+            
+            DataTable dt = new DataTable();
+            
+            dt.Clear();
+            dt = dao.datosNombres();
+            //CbPeliculas.Text = dt.Rows[1][1].ToString();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                CbPeliculas.Items.Add(dt.Rows[i][0].ToString());
+            }
+            
+            //CbPeliculas.DataSource = dt.Rows[1][1].ToString();
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            obtenerPeliculas();
+        }
+
+
+
+
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void Home_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -52,44 +76,18 @@ namespace ProyectoPeliculas
 
             DTOPeliculas pelicula = new DTOPeliculas()
             {
-                Nombre = txtNombre.Text,
-                Duracion = txtDuracion.Text,
-                Clasificacion = txtClasificacion.Text,
-                PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
-                Precio = Convert.ToDouble(txtPrecio.Text),
-                Genero = txtGenero.Text,
-                AnoLanzamiento = DTPAnoLanzamiento.Value,
-                Director = txtDirector.Text
-                
              
             };
 
             bool resultado = dao.agregar(pelicula);
-            if (resultado)
-            {
-                limpiarDatos();
-                labelAgregacion.Text = "Producto Guardado";
-
-            }
-            else
-            {
-                limpiarDatos();
-                labelAgregacion.Text = "ERROR. Intente mas Tarde!";
-            }
-
-            
+          
 
 
         }
         public void limpiarDatos()
         {
             txtNombre.Text = "";
-            txtGenero.Text = "";
-            txtDirector.Text = "";
-            txtClasificacion.Text = "";
-            txtDuracion.Text = "";
-            txtPrecio.Text = "";
-            txtPeliculasDisponibles.Text = "";
+         
             txtNombre.Focus();
         }
 
@@ -108,7 +106,12 @@ namespace ProyectoPeliculas
 
         }
 
-        private void txtIdPelicula_TextChanged(object sender, EventArgs e)
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CbPeliculas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

@@ -37,6 +37,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.labelAgregacion = new System.Windows.Forms.Label();
             this.dgvPeliculas = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeliculas)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +60,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Sitka Small", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(199, 34);
+            this.label1.Location = new System.Drawing.Point(213, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(568, 88);
             this.label1.TabIndex = 0;
@@ -98,7 +103,7 @@
             this.button2.Font = new System.Drawing.Font("Sitka Small", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(730, 656);
+            this.button2.Location = new System.Drawing.Point(806, 698);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(156, 58);
             this.button2.TabIndex = 9;
@@ -120,7 +125,7 @@
             // dgvPeliculas
             // 
             this.dgvPeliculas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPeliculas.Location = new System.Drawing.Point(33, 216);
+            this.dgvPeliculas.Location = new System.Drawing.Point(36, 286);
             this.dgvPeliculas.Name = "dgvPeliculas";
             this.dgvPeliculas.RowHeadersWidth = 51;
             this.dgvPeliculas.RowTemplate.Height = 29;
@@ -128,12 +133,79 @@
             this.dgvPeliculas.TabIndex = 78;
             this.dgvPeliculas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPeliculas_CellContentClick);
             // 
+            // button1
+            // 
+            this.button1.AutoSize = true;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(240)))), ((int)(((byte)(213)))));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Sitka Small", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(605, 698);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 58);
+            this.button1.TabIndex = 79;
+            this.button1.Text = "Modificar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Items.AddRange(new object[] {
+            "Disponibles",
+            "Agotada",
+            "Todas"});
+            this.cbFiltro.Location = new System.Drawing.Point(135, 219);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(225, 37);
+            this.cbFiltro.TabIndex = 1;
+            this.cbFiltro.Text = "Disponibles";
+            this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(36, 222);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 29);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "Filtrar:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(581, 216);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 29);
+            this.label3.TabIndex = 81;
+            this.label3.Text = "Buscar:";
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtBusqueda.Location = new System.Drawing.Point(680, 216);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(265, 32);
+            this.txtBusqueda.TabIndex = 82;
+            this.txtBusqueda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBusqueda_KeyUp);
+            // 
             // MostarPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(226)))), ((int)(((byte)(183)))));
             this.ClientSize = new System.Drawing.Size(1016, 772);
+            this.Controls.Add(this.txtBusqueda);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbFiltro);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvPeliculas);
             this.Controls.Add(this.labelAgregacion);
             this.Controls.Add(this.button2);
@@ -163,5 +235,10 @@
         private Button button2;
         private Label labelAgregacion;
         private DataGridView dgvPeliculas;
+        private Button button1;
+        private ComboBox cbFiltro;
+        private Label label2;
+        private Label label3;
+        private TextBox txtBusqueda;
     }
 }
