@@ -12,13 +12,39 @@ using System.Windows.Forms;
 
 namespace ProyectoPeliculas
 {
-    public partial class AddPelicula : Form
+    public partial class UpdatePelicula : Form
     {
-        public AddPelicula()
+        public UpdatePelicula()
         {
             InitializeComponent();
+
         }
 
+        public UpdatePelicula(DTOPeliculas pelicula)
+        {
+            InitializeComponent();
+            //codigo para mostrar los datos de las peliculas
+            txtNombre.Text = pelicula.Nombre;
+            txtGenero.Text = pelicula.Genero;
+            txtDirector.Text = pelicula.Director;
+            txtClasificacion.Text = pelicula.Clasificacion;
+            DTPAnoLanzamiento.Value = pelicula.AnoLanzamiento;
+            txtDuracion.Text = pelicula.Duracion;
+            txtPrecio.Text = pelicula.Precio.ToString();
+            txtPeliculasDisponibles.Text = pelicula.PeliculasDisponibles.ToString();
+            txtIdPelicula.Text = pelicula.IdPeliculas.ToString();
+
+            if (pelicula.Status)
+            {
+                chkIsActive.Checked = true;
+
+            }
+            else
+            {
+                chkIsActive.Checked = false;
+
+            }
+        }
         
 
         private void label1_Click(object sender, EventArgs e)
@@ -48,10 +74,11 @@ namespace ProyectoPeliculas
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            DAOPeliculas1 dao = new DAOPeliculas1();
+            DAOPeliculas dao = new DAOPeliculas();
 
             DTOPeliculas pelicula = new DTOPeliculas()
             {
+                IdPeliculas = int.Parse(txtIdPelicula.Text),
                 Nombre = txtNombre.Text,
                 Duracion = txtDuracion.Text,
                 Clasificacion = txtClasificacion.Text,
@@ -60,23 +87,30 @@ namespace ProyectoPeliculas
                 Genero = txtGenero.Text,
                 AnoLanzamiento = DTPAnoLanzamiento.Value,
                 Director = txtDirector.Text
-                
-             
-            };
+             };
 
-            bool resultado = dao.agregar(pelicula);
+
+            if (chkIsActive.Checked)
+                pelicula.Status = true;
+            else
+                pelicula.Status = false;
+
+            txtIdPelicula.Text = pelicula.IdPeliculas.ToString();
+
+            bool resultado = dao.Modificar(pelicula);
+
             if (resultado)
             {
                 limpiarDatos();
-                labelAgregacion.Text = "Producto Guardado";
+                MessageBox.Show("Se modifico Correctamente el " + pelicula.Nombre);
 
             }
             else
             {
                 limpiarDatos();
-                labelAgregacion.Text = "ERROR. Intente mas Tarde!";
+                MessageBox.Show("Hubo un error verifica e intenta mas tarde ");
             }
-
+            this.Close();
             
 
 
@@ -100,7 +134,7 @@ namespace ProyectoPeliculas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            
         }
 
         private void labelAgregacion_Click(object sender, EventArgs e)
@@ -108,7 +142,7 @@ namespace ProyectoPeliculas
 
         }
 
-        private void txtIdPelicula_TextChanged(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

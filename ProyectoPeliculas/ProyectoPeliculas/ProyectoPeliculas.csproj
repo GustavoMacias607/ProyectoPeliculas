@@ -27,16 +27,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="View\UpdatePelicula.cs">
+    <Compile Update="View\Peliculas\UpdatePelicula.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\AddRenta.cs">
+    <Compile Update="View\Renta\AddRenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\MostarPeliculas.cs">
+    <Compile Update="View\Peliculas\MostarPeliculas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\AddPelicula.cs">
+    <Compile Update="View\Peliculas\AddPelicula.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

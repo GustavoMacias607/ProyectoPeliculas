@@ -20,15 +20,23 @@ namespace ProyectoPeliculas
         }
         private void Home_Load(object sender, EventArgs e)
         {
+            modificarEstatus();
             obtenerPeliculas();
+            
         }
+        public void modificarEstatus()
+        {
+            DAOPeliculas dao = new DAOPeliculas();
+            dao.ModificarEstatus();
+        }
+        
 
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-        DAOPeliculas1 dao = new DAOPeliculas1();
+        DAOPeliculas dao = new DAOPeliculas();
         
         public void obtenerPeliculas()
         {

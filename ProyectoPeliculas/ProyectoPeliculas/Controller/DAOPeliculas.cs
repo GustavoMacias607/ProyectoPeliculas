@@ -9,7 +9,7 @@ using System.Data;
 
 namespace ProyectoPeliculas.Controller
 {
-    public class DAOPeliculas1 : BaseDatos
+    public class DAOPeliculas : BaseDatos
     {
 
         public bool agregar(DTOPeliculas pelicula)
@@ -62,7 +62,7 @@ namespace ProyectoPeliculas.Controller
         public DataTable datosDisponibles()
         {
 
-            string sentencia = "SELECT * FROM peliculas.pelis WHERE Estatus = 1";
+            string sentencia = "SELECT * FROM peliculas.pelis WHERE Estatus = 1 and CantidadPeliculasDisponibles >= 1";
             DataTable datos = new DataTable();
             MySqlDataAdapter adaptador = new MySqlDataAdapter();
             cone.Close();
@@ -72,12 +72,25 @@ namespace ProyectoPeliculas.Controller
             adaptador.Fill(datos);
             cone.Close();
             return datos;
+            }
+        public DataTable MostarPel()
+        {
 
+            string sentencia = "Select Nombre,CantidadPeliculasDisponibles from peliculas.pelis where Estatus = 1";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
         }
         public DataTable datosAgotados()
         {
 
-            string sentencia = "SELECT * FROM peliculas.pelis WHERE Estatus = 0";
+            string sentencia = "SELECT * FROM peliculas.pelis WHERE Estatus = 0 or CantidadPeliculasDisponibles = 0";
             DataTable datos = new DataTable();
             MySqlDataAdapter adaptador = new MySqlDataAdapter();
             cone.Close();
@@ -136,6 +149,23 @@ namespace ProyectoPeliculas.Controller
             return datos;
 
         }
+        public DataTable datosNombresId()
+        {
+
+            string sentencia = "SELECT Nombre FROM peliculas.pelis";
+            //BaseDatos bd = new BaseDatos();
+            // bd.Conexion();
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+
+        }
         public bool Modificar(DTOPeliculas pelicula)
         {
 
@@ -168,6 +198,83 @@ namespace ProyectoPeliculas.Controller
                     return false;
                 }
                 
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+        public DataTable MostrarAuxTalcual(DTORentas id)
+        {
+
+            string sentencia = "select IdRentas,IdPeliculas,Cantidad,Activo from peliculas.auxrentas,peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and Activo = 1";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+        }
+        public bool ModificarEstatus()
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                string sentencia =
+                    "update peliculas.pelis set Estatus = 0 where CantidadPeliculasDisponibles = 0";
+
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+        public bool ModificarEstatusM()
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                string sentencia =
+                    "update peliculas.pelis set Estatus = 1 where CantidadPeliculasDisponibles > 0";
+
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
             catch (Exception ex)
             {
