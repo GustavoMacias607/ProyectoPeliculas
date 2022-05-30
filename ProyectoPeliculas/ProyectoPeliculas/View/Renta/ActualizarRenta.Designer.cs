@@ -58,6 +58,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPel)).BeginInit();
@@ -82,6 +83,7 @@
             this.txtIdRenta.Name = "txtIdRenta";
             this.txtIdRenta.Size = new System.Drawing.Size(125, 27);
             this.txtIdRenta.TabIndex = 1;
+            this.txtIdRenta.Visible = false;
             // 
             // label1
             // 
@@ -195,6 +197,7 @@
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.chkIsActive);
             this.panel4.Controls.Add(this.btnMostrar);
             this.panel4.Controls.Add(this.DGVPel);
@@ -411,6 +414,17 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.label10.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(644, 191);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(229, 29);
+            this.label10.TabIndex = 80;
+            this.label10.Text = "Peliculas de la Renta:";
+            // 
             // ActualizarRenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -469,5 +483,6 @@
         private Button btnMostrar;
         private TextBox txtIdRenta;
         private CheckBox chkIsActive;
+        private Label label10;
     }
 }

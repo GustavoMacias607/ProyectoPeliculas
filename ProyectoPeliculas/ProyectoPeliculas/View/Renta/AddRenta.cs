@@ -1,15 +1,7 @@
 ﻿using ProyectoPeliculas.Controller;
 using ProyectoPeliculas.Controller.Rentas;
 using ProyectoPeliculas.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ProyectoPeliculas
 {
@@ -117,10 +109,10 @@ namespace ProyectoPeliculas
             };
             dt.Clear();
             dt = dao.PrecioTotal(id);
-            int costo = 0;
+            double costo = 0;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                costo += int.Parse(dt.Rows[i][3].ToString()) * int.Parse(dt.Rows[i][4].ToString());
+                costo += double.Parse(dt.Rows[i][3].ToString()) * double.Parse(dt.Rows[i][4].ToString());
 
             }
             lblTotal.Text = costo.ToString();
@@ -201,60 +193,65 @@ namespace ProyectoPeliculas
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            DAORentas dao = new DAORentas();
-            DataTable dt = new DataTable();
-            dt.Clear();
-            dt = dao.IndiceAuxRentas();
-
-
-
-            DTORentas Rentas = new DTORentas()
+            try
             {
+                if (txtNombre.Text == "")
+                {
+                    MessageBox.Show("Favor de ingresar un Nombre");
+                    txtNombre.Focus();
+                }
+                else
+                {
+                    DAORentas dao = new DAORentas();
+                    DataTable dt = new DataTable();
+                    dt.Clear();
+                    dt = dao.IndiceAuxRentas();
+                    DTORentas Rentas = new DTORentas()
+                    {
 
-                FechaRenta = DTPFechaRenta.Value,
-                TotalPagar = int.Parse(lblTotal.Text),
-                Nombre = txtNombre.Text,
-                FechaDevolucion = DTPFechaRenta.Value.AddDays(5),
+                        FechaRenta = DTPFechaRenta.Value,
+                        TotalPagar = double.Parse(lblTotal.Text),
+                        Nombre = txtNombre.Text,
+                        FechaDevolucion = DTPFechaRenta.Value.AddDays(5),
+                    };
+                    DTORentas indice = new DTORentas()
+                    {
+                        idRentaAux = int.Parse(dt.Rows[0][0].ToString())
+                    };
+                        bool resultado = dao.agregar(Rentas);
+                        dao.IdRentasAux(indice);
+                    if (resultado)
+                    {
+                        limpiarDatos();
+                        mostrarAux();
+                        MessageBox.Show("Se agrego de manera correcta");
+                        limpiarNombre();
+                    }
+                    else
+                    {
+                        limpiarDatos();
+                        MessageBox.Show("Algo Fallo");
 
-
-
-
-            };
-
-
-            DTORentas indice = new DTORentas()
-
-
-            {
-                idRentaAux = int.Parse(dt.Rows[0][0].ToString())
-            };
-
-
-
-
-
-
-            bool resultado = dao.agregar(Rentas);
-            dao.IdRentasAux(indice);
-
-            if (resultado)
-            {
-                limpiarDatos();
-                mostrarAux();
-                MessageBox.Show("Se agrego de manera correcta");
+                    }
+                }
             }
-            else
+            catch (Exception)
             {
-                limpiarDatos();
-                MessageBox.Show("Algo Fallo");
+
+                MessageBox.Show("Favor de ingresar los Caracteres correspondientes en el Nombre");
             }
         }
         public void limpiarDatos()
         {
-            txtNombre.Text = "";
+            
             txtCantidad.Text = "";
             lblTotal.Text = "0";
             CbPeliculas.Text = "";
+            
+        }
+        public void limpiarNombre()
+        {
+            txtNombre.Text = "";
             txtNombre.Focus();
         }
 
@@ -388,7 +385,7 @@ namespace ProyectoPeliculas
         string nombrePeli;
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
+            try { 
             DAORentas dao = new DAORentas();
             DataTable dt = new DataTable();
 
@@ -451,25 +448,30 @@ namespace ProyectoPeliculas
             costoTotal();
             mostrarTablita();
             bool resultado = dao.Modificar(aux);
-            if (resultado)
-            {
-                mostrarAux();
-                limpiarDatos();
-                costoTotal();
-                mo.ModificarEstatusM();
-                CbPeliculas.Items.Clear();
-                obtenerPeliculas();
-                mostrarTablita();
+                if (resultado)
+                {
+                    mostrarAux();
+                    limpiarDatos();
+                    costoTotal();
+                    mo.ModificarEstatusM();
+                    CbPeliculas.Items.Clear();
+                    obtenerPeliculas();
+                    mostrarTablita();
 
 
 
+                }
+                else
+                {
+                    limpiarDatos();
+
+                }
             }
-            else
+            catch (Exception)
             {
-                limpiarDatos();
-                
-            }
 
+                MessageBox.Show("Favor de seleccionar una Opcion");
+            }
 
         }
 

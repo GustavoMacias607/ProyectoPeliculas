@@ -140,10 +140,10 @@ namespace ProyectoPeliculas
             };
             dt.Clear();
             dt = dao.PrecioTotalActu(id);
-            int costo = 0;
+            double costo = 0;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                costo += int.Parse(dt.Rows[i][3].ToString()) * int.Parse(dt.Rows[i][4].ToString());
+                costo += double.Parse(dt.Rows[i][3].ToString()) * double.Parse(dt.Rows[i][4].ToString());
 
             }
             lblTotal.Text = costo.ToString();
@@ -225,49 +225,64 @@ namespace ProyectoPeliculas
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            DAORentas dao = new DAORentas();
-
-            DTORentas renta = new DTORentas()
+            if (txtNombre.Text == "")
             {
-                idRenta = int.Parse(txtIdRenta.Text),
-                Nombre = txtNombre.Text,
-                FechaRenta = DTPFechaRenta.Value,
-                FechaDevolucion = DTPFechaDevolucion.Value,
-                TotalPagar = int.Parse(lblTotal.Text),
-                
-            };
-
-
-            if (chkIsActive.Checked)
-                renta.Estatus = true;
-            else
-                renta.Estatus = false;
-
-            txtIdRenta.Text = renta.idRenta.ToString();
-
-            bool resultado = dao.ModificarRenta(renta);
-
-            if (resultado)
-            {
-                limpiarDatos();
-                MessageBox.Show("Se modifico Correctamente el " + renta.Nombre);
-
+                MessageBox.Show("Favor de ingresar un Nombre");
+                txtNombre.Focus();
             }
             else
             {
-                limpiarDatos();
-                MessageBox.Show("Hubo un error verifica e intenta mas tarde ");
-            }
-            this.Close();
 
+
+                DAORentas dao = new DAORentas();
+
+                DTORentas renta = new DTORentas()
+                {
+                    idRenta = int.Parse(txtIdRenta.Text),
+                    Nombre = txtNombre.Text,
+                    FechaRenta = DTPFechaRenta.Value,
+                    FechaDevolucion = DTPFechaDevolucion.Value,
+                    TotalPagar = double.Parse(lblTotal.Text),
+
+                };
+
+
+                if (chkIsActive.Checked)
+                    renta.Estatus = true;
+                else
+                    renta.Estatus = false;
+
+                txtIdRenta.Text = renta.idRenta.ToString();
+
+                bool resultado = dao.ModificarRenta(renta);
+
+                if (resultado)
+                {
+                    limpiarDatos();
+                    MessageBox.Show("Se modifico Correctamente el " + renta.Nombre);
+                    limpiarNombre();
+
+                }
+                else
+                {
+                    limpiarDatos();
+                    MessageBox.Show("Hubo un error verifica e intenta mas tarde ");
+                }
+                this.Close();
+            }
         }
         public void limpiarDatos()
         {
             
-            txtCantidad.Text = "";
+            
             lblTotal.Text = "0";
             CbPeliculas.Text = "";
-            CbPeliculas.Focus();
+            
+        }
+        public void limpiarNombre()
+        {
+            txtNombre.Text = "";
+            txtNombre.Focus();
         }
 
         private void lad_Click(object sender, EventArgs e)
@@ -400,88 +415,89 @@ namespace ProyectoPeliculas
         string nombrePeli;
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            
-            DAORentas dao = new DAORentas();
-            DataTable dt = new DataTable();
-
-            dt.Clear();
-            dt = dao.IndiceAuxRentas();
-
-            DataTable dn = new DataTable();
-            DAOPeliculas da = new DAOPeliculas();
-            dn.Clear();
-            dn = da.datosNombresId();
-            nombrePeli = DGVPeliculas.Rows[DGVPeliculas.CurrentRow.Index].Cells[1].Value.ToString();
-            int AuxIdPelicula = 0;
-            for (int i = 0; i < dn.Rows.Count; i++)
+            try
             {
+               
+                DAORentas dao = new DAORentas();
+                DataTable dt = new DataTable();
 
-                if (nombrePeli == dn.Rows[i][0].ToString())
+                dt.Clear();
+                dt = dao.IndiceAuxRentas();
+
+                DataTable dn = new DataTable();
+                DAOPeliculas da = new DAOPeliculas();
+                dn.Clear();
+                dn = da.datosNombresId();
+                nombrePeli = DGVPeliculas.Rows[DGVPeliculas.CurrentRow.Index].Cells[1].Value.ToString();
+                int AuxIdPelicula = 0;
+                for (int i = 0; i < dn.Rows.Count; i++)
                 {
-                    AuxIdPelicula = i + 1;
+
+                    if (nombrePeli == dn.Rows[i][0].ToString())
+                    {
+                        AuxIdPelicula = i + 1;
+                    }
+
+
                 }
 
-
-            }
-
             
-            DTORentas aux = new DTORentas()
-            {
-                idRentaAux = int.Parse(txtIdRenta.Text),
-
-                idPeliculaRentada = int.Parse(AuxIdPelicula.ToString()),
+                DTORentas aux = new DTORentas()
+                {
+                    idRentaAux = int.Parse(txtIdRenta.Text),
+                    idPeliculaRentada = int.Parse(AuxIdPelicula.ToString()),
                
 
-            };
+                };
             
            
 
-            int cant = 0; 
+                int cant = 0; 
 
-            dt = dao.ValidacionCantidad();
-            dn = da.MostrarAuxTalcual(aux);
+                dt = dao.ValidacionCantidad();
+                dn = da.MostrarAuxTalcual(aux);
 
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                if (int.Parse(dt.Rows[i][0].ToString()) == AuxIdPelicula)
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    cant =  int.Parse(dt.Rows[i][1].ToString());
+                    if (int.Parse(dt.Rows[i][0].ToString()) == AuxIdPelicula)
+                    {
+                        cant =  int.Parse(dt.Rows[i][1].ToString());
+                    }
                 }
-            }
-            for (int i = 0; i < dn.Rows.Count; i++)
-            {
-                if (int.Parse(dn.Rows[i][1].ToString()) == AuxIdPelicula)
+                for (int i = 0; i < dn.Rows.Count; i++)
                 {
-                    cant = int.Parse(dn.Rows[i][2].ToString()) + cant;
+                    if (int.Parse(dn.Rows[i][1].ToString()) == AuxIdPelicula)
+                    {
+                        cant = int.Parse(dn.Rows[i][2].ToString()) + cant;
+                    }
                 }
-            }
-
-
-            DAOPeliculas mo = new DAOPeliculas();
-            dao.ModificarCantidad(cant, AuxIdPelicula);
-            mostrarAux();
-            costoTotal();
-            mostrarTablita();
-            bool resultado = dao.Modificar(aux);
-            if (resultado)
-            {
+                DAOPeliculas mo = new DAOPeliculas();
+                dao.ModificarCantidad(cant, AuxIdPelicula);
                 mostrarAux();
-                limpiarDatos();
                 costoTotal();
-                mo.ModificarEstatusM();
-                CbPeliculas.Items.Clear();
-                obtenerPeliculas();
                 mostrarTablita();
-
-
-
-            }
-            else
-            {
-                limpiarDatos();
+                bool resultado = dao.Modificar(aux);
+                if (resultado)
+                {
+                    mostrarAux();
+                    limpiarDatos();
+                    costoTotal();
+                    mo.ModificarEstatusM();
+                    CbPeliculas.Items.Clear();
+                    obtenerPeliculas();
+                    mostrarTablita();
+                }
+                else
+                {
+                    limpiarDatos();
                 
+                }
             }
+            catch (Exception)
+            {
 
+                MessageBox.Show("Favor de seleccionar una Opcion");
+            }
 
         }
 
