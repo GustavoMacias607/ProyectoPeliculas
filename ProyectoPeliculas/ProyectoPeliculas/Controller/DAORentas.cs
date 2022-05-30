@@ -11,6 +11,63 @@ namespace ProyectoPeliculas.Controller.Rentas
 {
     public class DAORentas : BaseDatos
     {
+        public DataTable MostrarRentasActivas()
+        {
+
+            string sentencia = "SELECT * FROM peliculas.rentas where Activa = 1 ";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+        }
+        public DataTable MostrarRentasInactivas()
+        {
+
+            string sentencia = "SELECT * FROM peliculas.rentas where Activa = 0";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+        }
+        public DataTable MostrarRentasTodas()
+        {
+
+            string sentencia = "SELECT * FROM peliculas.rentas";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+        }
+        public DataTable datosLike(string parametro, string sen)
+        {
+
+            string sentencia = "SELECT * FROM peliculas.rentas WHERE NombreCliente Like '%" + parametro + "%'" + sen;
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+
+        }
         public bool agregar(DTORentas renta)
         {
 
@@ -139,7 +196,21 @@ namespace ProyectoPeliculas.Controller.Rentas
             cone.Close();
             return datos;
         }
-        
+        public DataTable MostarAuxActu(DTORentas id)
+        {
+
+            string sentencia = "Select IdRentas,Nombre,Cantidad,Activo from peliculas.auxrentas,peliculas.pelis,peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and IdPelicula = IdPeliculas and Activo = 1";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+        }
+
         public bool Modificar(DTORentas renta)
         {
 
@@ -175,6 +246,21 @@ namespace ProyectoPeliculas.Controller.Rentas
         {
 
             string sentencia = "Select IdRentas, IdPeliculas, CantidadPeliculasDisponibles, Cantidad, PreciodeRenta, Activo from peliculas.auxrentas, peliculas.pelis, peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and IdRentas = IdRentasAux and IdPelicula = IdPeliculas and Activo = 1";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+
+        }
+        public DataTable PrecioTotalActu(DTORentas id)
+        {
+
+            string sentencia = "Select IdRentas, IdPeliculas, CantidadPeliculasDisponibles, Cantidad, PreciodeRenta, Activo from peliculas.auxrentas, peliculas.pelis, peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and IdPelicula = IdPeliculas and Activo = 1";
             DataTable datos = new DataTable();
             MySqlDataAdapter adaptador = new MySqlDataAdapter();
             cone.Close();
@@ -233,6 +319,43 @@ namespace ProyectoPeliculas.Controller.Rentas
         }
         
 
+    
+    public bool ModificarRenta(DTORentas renta)
+    {
+
+        BaseDatos bd = new BaseDatos();
+        bd.Conexion();
+        bool result = false;
+        try
+        {
+            string sentencia =
+                "UPDATE peliculas.rentas SET NombreCliente = '" + renta.Nombre +
+                "',FechaRenta='" + renta.FechaRenta.ToString("yyyy/MM/dd") +
+                "',FechaDevolucion='" + renta.FechaDevolucion.ToString("yyyy/MM/dd") +
+                "',TotalPagar=" + renta.TotalPagar +
+                ",Activa=" + renta.Estatus +
+                " WHERE IdRenta = " + renta.idRenta;
+
+            bool res = bd.insertarDatos(sentencia);
+            bd.Cerrar();
+            if (res)
+            {
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        catch (Exception ex)
+        {
+            result = false;
+
+        }
+        return result;
     }
-   
+}
+
 }

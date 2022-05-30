@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoPeliculas.View.Renta;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace ProyectoPeliculas
         AddPelicula agregar = new AddPelicula();
         MostarPeliculas mostrar = new MostarPeliculas();
         AddRenta renta = new AddRenta();
+        MostrarRentas mosRentas = new MostrarRentas();
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -87,6 +89,11 @@ namespace ProyectoPeliculas
         private void button6_Click(object sender, EventArgs e)
         {
             renta.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            mosRentas.ShowDialog();
         }
     }
 }

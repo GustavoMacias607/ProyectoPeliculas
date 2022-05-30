@@ -25,9 +25,9 @@ namespace ProyectoPeliculas
             InitializeComponent();
             //codigo para mostrar los datos de las peliculas
             txtNombre.Text = pelicula.Nombre;
-            txtGenero.Text = pelicula.Genero;
+            cbGenero.Text = pelicula.Genero;
             txtDirector.Text = pelicula.Director;
-            txtClasificacion.Text = pelicula.Clasificacion;
+            CbClasificacion.Text = pelicula.Clasificacion;
             DTPAnoLanzamiento.Value = pelicula.AnoLanzamiento;
             txtDuracion.Text = pelicula.Duracion;
             txtPrecio.Text = pelicula.Precio.ToString();
@@ -74,53 +74,67 @@ namespace ProyectoPeliculas
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            DAOPeliculas dao = new DAOPeliculas();
-
-            DTOPeliculas pelicula = new DTOPeliculas()
+            try
             {
-                IdPeliculas = int.Parse(txtIdPelicula.Text),
-                Nombre = txtNombre.Text,
-                Duracion = txtDuracion.Text,
-                Clasificacion = txtClasificacion.Text,
-                PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
-                Precio = Convert.ToDouble(txtPrecio.Text),
-                Genero = txtGenero.Text,
-                AnoLanzamiento = DTPAnoLanzamiento.Value,
-                Director = txtDirector.Text
-             };
+                if (txtNombre.Text == "" || cbGenero.Text == "" || txtDirector.Text == "" || CbClasificacion.Text == ""
+                    || txtDuracion.Text == "" || txtPrecio.Text == "" || txtPeliculasDisponibles.Text == "")
+                {
+                    MessageBox.Show("Favor de llenar todos los campos");
+                }
+                else
+                {
+                    DAOPeliculas dao = new DAOPeliculas();
+
+                    DTOPeliculas pelicula = new DTOPeliculas()
+                    {
+                        IdPeliculas = int.Parse(txtIdPelicula.Text),
+                        Nombre = txtNombre.Text,
+                        Duracion = txtDuracion.Text,
+                        Clasificacion = CbClasificacion.Text,
+                        PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
+                        Precio = Convert.ToDouble(txtPrecio.Text),
+                        Genero = cbGenero.Text,
+                        AnoLanzamiento = DTPAnoLanzamiento.Value,
+                        Director = txtDirector.Text
+                    };
 
 
-            if (chkIsActive.Checked)
-                pelicula.Status = true;
-            else
-                pelicula.Status = false;
+                    if (chkIsActive.Checked)
+                        pelicula.Status = true;
+                    else
+                        pelicula.Status = false;
 
-            txtIdPelicula.Text = pelicula.IdPeliculas.ToString();
+                    txtIdPelicula.Text = pelicula.IdPeliculas.ToString();
 
-            bool resultado = dao.Modificar(pelicula);
+                    bool resultado = dao.Modificar(pelicula);
 
-            if (resultado)
-            {
-                limpiarDatos();
-                MessageBox.Show("Se modifico Correctamente el " + pelicula.Nombre);
+                    if (resultado)
+                    {
+                        limpiarDatos();
+                        MessageBox.Show("Se modifico Correctamente el " + pelicula.Nombre);
 
+                    }
+                    else
+                    {
+                        limpiarDatos();
+                        MessageBox.Show("Hubo un error verifica e intenta mas tarde ");
+                    }
+                    this.Close();
+                }
             }
-            else
+            catch (Exception)
             {
-                limpiarDatos();
-                MessageBox.Show("Hubo un error verifica e intenta mas tarde ");
-            }
-            this.Close();
-            
 
+                MessageBox.Show("Favor de Ingresar los caracteres correspondientes ");
+            }
 
         }
         public void limpiarDatos()
         {
             txtNombre.Text = "";
-            txtGenero.Text = "";
+            cbGenero.Text = "";
             txtDirector.Text = "";
-            txtClasificacion.Text = "";
+            CbClasificacion.Text = "";
             txtDuracion.Text = "";
             txtPrecio.Text = "";
             txtPeliculasDisponibles.Text = "";

@@ -30,6 +30,9 @@
     <Compile Update="View\Peliculas\UpdatePelicula.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Renta\ActualizarRenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Renta\AddRenta.cs">
       <SubType>Form</SubType>
     </Compile>

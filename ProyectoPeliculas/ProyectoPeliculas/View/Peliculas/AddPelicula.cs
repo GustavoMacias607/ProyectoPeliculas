@@ -48,46 +48,65 @@ namespace ProyectoPeliculas
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            DAOPeliculas dao = new DAOPeliculas();
-
-            DTOPeliculas pelicula = new DTOPeliculas()
+            try
             {
-                Nombre = txtNombre.Text,
-                Duracion = txtDuracion.Text,
-                Clasificacion = txtClasificacion.Text,
-                PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
-                Precio = Convert.ToDouble(txtPrecio.Text),
-                Genero = txtGenero.Text,
-                AnoLanzamiento = DTPAnoLanzamiento.Value,
-                Director = txtDirector.Text
-                
-             
-            };
 
-            bool resultado = dao.agregar(pelicula);
-            if (resultado)
-            {
-                
-                limpiarDatos();
-                
 
+                if (txtNombre.Text == "" || cbGenero.Text == "" || txtDirector.Text == "" || CbClasificacion.Text == ""
+                   || txtDuracion.Text == "" || txtPrecio.Text == "" || txtPeliculasDisponibles.Text == "")
+                {
+                    MessageBox.Show("Favor de llenar todos los campos");
+                }
+                else
+                {
+
+
+                    DAOPeliculas dao = new DAOPeliculas();
+
+                    DTOPeliculas pelicula = new DTOPeliculas()
+                    {
+                        Nombre = txtNombre.Text,
+                        Duracion = txtDuracion.Text,
+                        Clasificacion = CbClasificacion.Text,
+                        PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
+                        Precio = Convert.ToDouble(txtPrecio.Text),
+                        Genero = cbGenero.Text,
+                        AnoLanzamiento = DTPAnoLanzamiento.Value,
+                        Director = txtDirector.Text
+
+
+                    };
+
+                    bool resultado = dao.agregar(pelicula);
+                    if (resultado)
+                    {
+
+                        limpiarDatos();
+
+
+                    }
+                    else
+                    {
+                        limpiarDatos();
+
+                    }
+
+
+
+                }
             }
-            else
+            catch (Exception)
             {
-                limpiarDatos();
-                
+
+                MessageBox.Show("Favor de Ingresar los caracteres correspondientes ");
             }
-
-            
-
-
         }
         public void limpiarDatos()
         {
             txtNombre.Text = "";
-            txtGenero.Text = "";
+            cbGenero.Text = "";
             txtDirector.Text = "";
-            txtClasificacion.Text = "";
+            CbClasificacion.Text = "";
             txtDuracion.Text = "";
             txtPrecio.Text = "";
             txtPeliculasDisponibles.Text = "";

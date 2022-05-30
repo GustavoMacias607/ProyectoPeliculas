@@ -46,18 +46,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtPeliculasDisponibles = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtGenero = new System.Windows.Forms.TextBox();
             this.txtDirector = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtClasificacion = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.txtDuracion = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.lad = new System.Windows.Forms.Label();
             this.DTPAnoLanzamiento = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.CbClasificacion = new System.Windows.Forms.ComboBox();
+            this.cbGenero = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.labelAgregacion = new System.Windows.Forms.Label();
@@ -245,16 +243,6 @@
             this.label10.TabIndex = 61;
             this.label10.Text = "_____________________";
             // 
-            // txtGenero
-            // 
-            this.txtGenero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.txtGenero.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGenero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtGenero.Location = new System.Drawing.Point(511, 51);
-            this.txtGenero.Name = "txtGenero";
-            this.txtGenero.Size = new System.Drawing.Size(237, 23);
-            this.txtGenero.TabIndex = 1;
-            // 
             // txtDirector
             // 
             this.txtDirector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
@@ -275,27 +263,6 @@
             this.label12.Size = new System.Drawing.Size(241, 23);
             this.label12.TabIndex = 65;
             this.label12.Text = "_____________________";
-            // 
-            // txtClasificacion
-            // 
-            this.txtClasificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.txtClasificacion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtClasificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtClasificacion.Location = new System.Drawing.Point(598, 335);
-            this.txtClasificacion.Name = "txtClasificacion";
-            this.txtClasificacion.Size = new System.Drawing.Size(237, 23);
-            this.txtClasificacion.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(594, 339);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(241, 23);
-            this.label14.TabIndex = 67;
-            this.label14.Text = "_____________________";
             // 
             // txtDuracion
             // 
@@ -355,26 +322,53 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.txtGenero);
+            this.panel4.Controls.Add(this.CbClasificacion);
+            this.panel4.Controls.Add(this.cbGenero);
             this.panel4.Controls.Add(this.txtPrecio);
             this.panel4.Controls.Add(this.lad);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.label8);
             this.panel4.Location = new System.Drawing.Point(28, 214);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(959, 386);
             this.panel4.TabIndex = 75;
             // 
-            // label8
+            // CbClasificacion
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.label8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(511, 55);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(241, 23);
-            this.label8.TabIndex = 63;
-            this.label8.Text = "_____________________";
+            this.CbClasificacion.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbClasificacion.FormattingEnabled = true;
+            this.CbClasificacion.Items.AddRange(new object[] {
+            "AA",
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.CbClasificacion.Location = new System.Drawing.Point(572, 117);
+            this.CbClasificacion.Name = "CbClasificacion";
+            this.CbClasificacion.Size = new System.Drawing.Size(77, 37);
+            this.CbClasificacion.TabIndex = 2;
+            // 
+            // cbGenero
+            // 
+            this.cbGenero.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.Items.AddRange(new object[] {
+            "Accion",
+            "Comedia",
+            "Drama",
+            "Romance",
+            "Aventura",
+            "Concierto",
+            "Misterio",
+            "Sustpenso",
+            "Ciencia Ficcion",
+            "Fantasia",
+            "Documental",
+            "Musicales",
+            "Terror"});
+            this.cbGenero.Location = new System.Drawing.Point(515, 51);
+            this.cbGenero.Name = "cbGenero";
+            this.cbGenero.Size = new System.Drawing.Size(211, 37);
+            this.cbGenero.TabIndex = 1;
             // 
             // button1
             // 
@@ -434,8 +428,6 @@
             this.Controls.Add(this.DTPAnoLanzamiento);
             this.Controls.Add(this.txtDuracion);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.txtClasificacion);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.txtDirector);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtPeliculasDisponibles);
@@ -486,11 +478,8 @@
         private Label label5;
         private TextBox txtPeliculasDisponibles;
         private Label label10;
-        private TextBox txtGenero;
         private TextBox txtDirector;
         private Label label12;
-        private TextBox txtClasificacion;
-        private Label label14;
         private TextBox txtDuracion;
         private Label label16;
         private TextBox txtPrecio;
@@ -500,6 +489,7 @@
         private Button button1;
         private Button button2;
         private Label labelAgregacion;
-        private Label label8;
+        private ComboBox cbGenero;
+        private ComboBox CbClasificacion;
     }
 }
