@@ -72,17 +72,17 @@ namespace ProyectoPeliculas
                 {
                     if (int.Parse(txtCantidad.Text.ToString()) <= int.Parse(dt.Rows[i][1].ToString()))
                     {
-                        
-                            MessageBox.Show("bien");
-                            result = true;
+
+                        MessageBox.Show("Se agrego de manera correcta");
+                        result = true;
                         cant = int.Parse(dt.Rows[i][1].ToString()) - int.Parse(txtCantidad.Text.ToString());
                         dao.ModificarCantidad(cant, idContPelis);
                         break;
                     }
                     else
                     {
-                            MessageBox.Show("mal");
-                            result = false;
+                        MessageBox.Show("Cantidad de Peliculas No Disponibles");
+                        result = false;
                     }
                     
                 }

@@ -28,11 +28,11 @@ namespace ProyectoPeliculas.View.Renta
 
             DataTable dt = new DataTable();
             dt.Clear();
-            if (cbFiltro.Text == "Disponibles")
+            if (cbFiltro.Text == "Activas")
             {
                 dt = dao.MostrarRentasActivas();
             }
-            else if (cbFiltro.Text == "Agotada")
+            else if (cbFiltro.Text == "Inactivas")
             {
                 dt = dao.MostrarRentasInactivas();
             }
@@ -49,11 +49,11 @@ namespace ProyectoPeliculas.View.Renta
         {
             DataTable dt = new DataTable();
             dt.Clear();
-            if (cbFiltro.Text == "Disponibles")
+            if (cbFiltro.Text == "Activas")
             {
                 dt = dao.datosLike(txtBusqueda.Text, " && Activa = 1");
             }
-            else if (cbFiltro.Text == "Agotada")
+            else if (cbFiltro.Text == "Inactivas")
             {
                 dt = dao.datosLike(txtBusqueda.Text, " && Activa = 0");
             }

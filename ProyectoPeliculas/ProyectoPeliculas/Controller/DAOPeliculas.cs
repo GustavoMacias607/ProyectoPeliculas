@@ -11,7 +11,144 @@ namespace ProyectoPeliculas.Controller
 {
     public class DAOPeliculas : BaseDatos
     {
+        #region pruebas unitarias
+        public bool agregarUni(string sentencia)
+        {
 
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+              
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Insertado correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+
+        public bool ModificarUni(string sentencia)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+               
+
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+
+        public bool ModificarEstatusUni(string sentencia)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+        public bool MostrarPeliculasUni(string sentencia)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Se han Mostrado los datos correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+        #endregion
+
+        public DataTable DatosDisponibles()
+        {
+
+            string sentencia = "SELECT * FROM peliculas.pelis WHERE Estatus = 1 and CantidadPeliculasDisponibles >= 1";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+            }
+       
         public bool agregar(DTOPeliculas pelicula)
         {
 
@@ -51,6 +188,7 @@ namespace ProyectoPeliculas.Controller
             }
             return result;
         }
+
 
 
         ///<summary>

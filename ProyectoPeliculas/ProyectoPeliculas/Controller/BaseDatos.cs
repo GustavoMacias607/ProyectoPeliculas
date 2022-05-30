@@ -9,6 +9,9 @@ namespace ProyectoPeliculas.Controller
 {
     public class BaseDatos
     {
+
+        #region PruebasUnitariasConexion
+       
         public static MySqlConnection cone = new MySqlConnection();
         static string server = "Server = localhost;";
         static string db = " Database = proyecto;";
@@ -19,6 +22,28 @@ namespace ProyectoPeliculas.Controller
         static MySqlCommand comando = new MySqlCommand();
         static MySqlDataAdapter adaptador = new MySqlDataAdapter();
 
+        public bool ConexionUni()
+        {
+            bool resultado = false;
+            try
+            {
+                cone.ConnectionString = CadenaConexion;
+                cone.Open();
+                Console.WriteLine("Se conecto de manera correcta");
+                resultado = true;
+            }
+
+            catch (Exception e)
+            {
+                Console.WriteLine("No se conecto" + e.ToString());
+                resultado = false;
+
+            }
+            return resultado;
+        }
+
+
+        #endregion
         public void Conexion()
         {
             try

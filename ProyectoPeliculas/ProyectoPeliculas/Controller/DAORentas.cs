@@ -11,6 +11,131 @@ namespace ProyectoPeliculas.Controller.Rentas
 {
     public class DAORentas : BaseDatos
     {
+
+
+        #region
+
+        public bool agregarUni(string sentencia)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+               
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Insertado correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+
+        }
+        public bool ModificarUni(string sentencia)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                
+
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+        public bool ModificarEstatusUni(string sentencia)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+               
+
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+        public bool MostrarRentasUni(string sentencia)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Se han Mostrado los datos correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+
+        #endregion
         public DataTable MostrarRentasActivas()
         {
 

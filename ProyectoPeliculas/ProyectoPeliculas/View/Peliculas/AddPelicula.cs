@@ -89,12 +89,14 @@ namespace ProyectoPeliculas
                         {
 
                             limpiarDatos();
+                            MessageBox.Show("Pelicula Agregada Con Exito");
 
 
                         }
                         else
                         {
                             limpiarDatos();
+                            MessageBox.Show("Algo Fallo Intentelo Mas Tarde");
 
                         }
 

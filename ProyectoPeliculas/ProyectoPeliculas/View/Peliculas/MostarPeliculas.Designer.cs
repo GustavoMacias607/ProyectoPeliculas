@@ -162,7 +162,7 @@
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
             "Disponibles",
-            "Agotada",
+            "Agotadas",
             "Todas"});
             this.cbFiltro.Location = new System.Drawing.Point(135, 219);
             this.cbFiltro.Name = "cbFiltro";

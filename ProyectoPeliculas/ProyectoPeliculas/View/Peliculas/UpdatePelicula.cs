@@ -83,43 +83,51 @@ namespace ProyectoPeliculas
                 }
                 else
                 {
-                    DAOPeliculas dao = new DAOPeliculas();
 
-                    DTOPeliculas pelicula = new DTOPeliculas()
+                    if (int.Parse(txtPrecio.Text) <= 0)
                     {
-                        IdPeliculas = int.Parse(txtIdPelicula.Text),
-                        Nombre = txtNombre.Text,
-                        Duracion = txtDuracion.Text,
-                        Clasificacion = CbClasificacion.Text,
-                        PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
-                        Precio = Convert.ToDouble(txtPrecio.Text),
-                        Genero = cbGenero.Text,
-                        AnoLanzamiento = DTPAnoLanzamiento.Value,
-                        Director = txtDirector.Text
-                    };
-
-
-                    if (chkIsActive.Checked)
-                        pelicula.Status = true;
-                    else
-                        pelicula.Status = false;
-
-                    txtIdPelicula.Text = pelicula.IdPeliculas.ToString();
-
-                    bool resultado = dao.Modificar(pelicula);
-
-                    if (resultado)
-                    {
-                        limpiarDatos();
-                        MessageBox.Show("Se modifico Correctamente el " + pelicula.Nombre);
-
+                        MessageBox.Show("Ingrese un Precio mayor a 0");
                     }
                     else
                     {
-                        limpiarDatos();
-                        MessageBox.Show("Hubo un error verifica e intenta mas tarde ");
+                        DAOPeliculas dao = new DAOPeliculas();
+
+                        DTOPeliculas pelicula = new DTOPeliculas()
+                        {
+                            IdPeliculas = int.Parse(txtIdPelicula.Text),
+                            Nombre = txtNombre.Text,
+                            Duracion = txtDuracion.Text,
+                            Clasificacion = CbClasificacion.Text,
+                            PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
+                            Precio = Convert.ToDouble(txtPrecio.Text),
+                            Genero = cbGenero.Text,
+                            AnoLanzamiento = DTPAnoLanzamiento.Value,
+                            Director = txtDirector.Text
+                        };
+
+
+                        if (chkIsActive.Checked)
+                            pelicula.Status = true;
+                        else
+                            pelicula.Status = false;
+
+                        txtIdPelicula.Text = pelicula.IdPeliculas.ToString();
+
+                        bool resultado = dao.Modificar(pelicula);
+
+                        if (resultado)
+                        {
+                            limpiarDatos();
+                            MessageBox.Show("Se modifico Correctamente el " + pelicula.Nombre);
+
+                        }
+                        else
+                        {
+                            limpiarDatos();
+                            MessageBox.Show("Hubo un error verifica e intenta mas tarde ");
+                        }
+                        this.Close();
                     }
-                    this.Close();
                 }
             }
             catch (Exception)

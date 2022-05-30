@@ -47,7 +47,7 @@ namespace ProyectoPeliculas
             {
                 dt = dao.datosDisponibles();
             }
-            else if (cbFiltro.Text == "Agotada")
+            else if (cbFiltro.Text == "Agotadas")
             {
                 dt = dao.datosAgotados();
             }
@@ -147,7 +147,7 @@ namespace ProyectoPeliculas
             if(cbFiltro.Text == "Disponibles")
             {
                 dt = dao.datosLike(txtBusqueda.Text, " && Estatus = 1");
-            }else if (cbFiltro.Text == "Agotada")
+            }else if (cbFiltro.Text == "Agotadas")
             {
                 dt = dao.datosLike(txtBusqueda.Text, " && Estatus = 0");
             }

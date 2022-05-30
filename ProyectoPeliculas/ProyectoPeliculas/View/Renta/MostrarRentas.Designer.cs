@@ -81,8 +81,8 @@
             this.cbFiltro.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
-            "Disponibles",
-            "Agotada",
+            "Activas",
+            "Inactivas",
             "Todas"});
             this.cbFiltro.Location = new System.Drawing.Point(135, 219);
             this.cbFiltro.Name = "cbFiltro";

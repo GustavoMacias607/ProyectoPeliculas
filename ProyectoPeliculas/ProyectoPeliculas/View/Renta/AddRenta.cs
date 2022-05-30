@@ -42,7 +42,7 @@ namespace ProyectoPeliculas
                     if (int.Parse(txtCantidad.Text.ToString()) <= int.Parse(dt.Rows[i][1].ToString()))
                     {
                         
-                            MessageBox.Show("bien");
+                            MessageBox.Show("Se Agrego la Pelicula Correctamente");
                             result = true;
                         cant = int.Parse(dt.Rows[i][1].ToString()) - int.Parse(txtCantidad.Text.ToString());
                         dao.ModificarCantidad(cant, idContPelis);
@@ -50,8 +50,8 @@ namespace ProyectoPeliculas
                     }
                     else
                     {
-                            MessageBox.Show("mal");
-                            result = false;
+                        MessageBox.Show("Cantidad de Peliculas No Disponibles");
+                        result = false;
                     }
                     
                 }
@@ -168,29 +168,6 @@ namespace ProyectoPeliculas
 
 
 
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DTPAñoLanzamiento_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             try
@@ -230,7 +207,7 @@ namespace ProyectoPeliculas
                     else
                     {
                         limpiarDatos();
-                        MessageBox.Show("Algo Fallo");
+                        MessageBox.Show("Algo Fallo Intentelo Mas Tarde");
 
                     }
                 }
@@ -255,35 +232,11 @@ namespace ProyectoPeliculas
             txtNombre.Focus();
         }
 
-        private void lad_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
             CbPeliculas.Items.Clear();
             this.Close();
-        }
-
-        private void labelAgregacion_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CbPeliculas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
         }
         static int idContPelis = 0;
         public void idpel()
@@ -378,10 +331,7 @@ namespace ProyectoPeliculas
         } 
         
         
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+      
         string nombrePeli;
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -415,12 +365,7 @@ namespace ProyectoPeliculas
                 idRentaAux = int.Parse(dt.Rows[0][0].ToString()),
 
                 idPeliculaRentada = int.Parse(AuxIdPelicula.ToString()),
-               
-
-            };
-            
-           
-
+             };
             int cant = 0; 
 
             dt = dao.ValidacionCantidad();
@@ -440,8 +385,6 @@ namespace ProyectoPeliculas
                     cant = int.Parse(dn.Rows[i][2].ToString()) + cant;
                 }
             }
-
-
             DAOPeliculas mo = new DAOPeliculas();
             dao.ModificarCantidad(cant, AuxIdPelicula);
             mostrarAux();
@@ -457,25 +400,17 @@ namespace ProyectoPeliculas
                     CbPeliculas.Items.Clear();
                     obtenerPeliculas();
                     mostrarTablita();
-
-
-
                 }
                 else
                 {
                     limpiarDatos();
-
                 }
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Favor de seleccionar una Opcion");
             }
-
         }
-
-       
         private void panel4_MouseMove(object sender, MouseEventArgs e)
         {
             DTPFechaDevolucion.Value = DTPFechaRenta.Value.AddDays(5);
@@ -493,9 +428,7 @@ namespace ProyectoPeliculas
             }
         }
 
-        private void DGVPel_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+       
 
-        }
     }
 }

@@ -72,7 +72,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1016, 180);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // label1
             // 
@@ -83,7 +83,7 @@
             this.label1.Size = new System.Drawing.Size(605, 88);
             this.label1.TabIndex = 0;
             this.label1.Text = "Registro de Renta";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            
             // 
             // panel2
             // 
@@ -167,7 +167,7 @@
             this.label5.Size = new System.Drawing.Size(172, 29);
             this.label5.TabIndex = 58;
             this.label5.Text = "Fecha de Renta:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            
             // 
             // DTPFechaRenta
             // 
@@ -179,7 +179,7 @@
             this.DTPFechaRenta.Name = "DTPFechaRenta";
             this.DTPFechaRenta.Size = new System.Drawing.Size(250, 27);
             this.DTPFechaRenta.TabIndex = 4;
-            this.DTPFechaRenta.ValueChanged += new System.EventHandler(this.DTPAñoLanzamiento_ValueChanged);
+            
             // 
             // panel4
             // 
@@ -248,7 +248,7 @@
             this.DGVPel.Size = new System.Drawing.Size(408, 188);
             this.DGVPel.TabIndex = 77;
             this.DGVPel.Visible = false;
-            this.DGVPel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVPel_CellContentClick);
+            
             // 
             // btnEliminar
             // 
