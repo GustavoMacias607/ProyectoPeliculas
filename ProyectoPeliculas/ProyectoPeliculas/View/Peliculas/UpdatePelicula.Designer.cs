@@ -55,11 +55,11 @@
             this.lad = new System.Windows.Forms.Label();
             this.DTPAnoLanzamiento = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.CbClasificacion = new System.Windows.Forms.ComboBox();
+            this.cbGenero = new System.Windows.Forms.ComboBox();
             this.chkIsActive = new System.Windows.Forms.CheckBox();
             this.BotonModificar = new System.Windows.Forms.Button();
             this.labelAgregacion = new System.Windows.Forms.Label();
-            this.CbClasificacion = new System.Windows.Forms.ComboBox();
-            this.cbGenero = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
@@ -343,6 +343,46 @@
             this.panel4.Size = new System.Drawing.Size(959, 393);
             this.panel4.TabIndex = 75;
             // 
+            // CbClasificacion
+            // 
+            this.CbClasificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbClasificacion.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbClasificacion.FormattingEnabled = true;
+            this.CbClasificacion.Items.AddRange(new object[] {
+            "AA",
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.CbClasificacion.Location = new System.Drawing.Point(572, 117);
+            this.CbClasificacion.Name = "CbClasificacion";
+            this.CbClasificacion.Size = new System.Drawing.Size(77, 37);
+            this.CbClasificacion.TabIndex = 76;
+            // 
+            // cbGenero
+            // 
+            this.cbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGenero.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.Items.AddRange(new object[] {
+            "Accion",
+            "Comedia",
+            "Drama",
+            "Romance",
+            "Aventura",
+            "Concierto",
+            "Misterio",
+            "Sustpenso",
+            "Ciencia Ficcion",
+            "Fantasia",
+            "Documental",
+            "Musicales",
+            "Terror"});
+            this.cbGenero.Location = new System.Drawing.Point(515, 51);
+            this.cbGenero.Name = "cbGenero";
+            this.cbGenero.Size = new System.Drawing.Size(211, 37);
+            this.cbGenero.TabIndex = 75;
+            // 
             // chkIsActive
             // 
             this.chkIsActive.AutoSize = true;
@@ -381,44 +421,6 @@
             this.labelAgregacion.Size = new System.Drawing.Size(0, 31);
             this.labelAgregacion.TabIndex = 77;
             this.labelAgregacion.Click += new System.EventHandler(this.labelAgregacion_Click);
-            // 
-            // CbClasificacion
-            // 
-            this.CbClasificacion.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbClasificacion.FormattingEnabled = true;
-            this.CbClasificacion.Items.AddRange(new object[] {
-            "AA",
-            "A",
-            "B",
-            "C",
-            "D"});
-            this.CbClasificacion.Location = new System.Drawing.Point(572, 117);
-            this.CbClasificacion.Name = "CbClasificacion";
-            this.CbClasificacion.Size = new System.Drawing.Size(77, 37);
-            this.CbClasificacion.TabIndex = 76;
-            // 
-            // cbGenero
-            // 
-            this.cbGenero.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbGenero.FormattingEnabled = true;
-            this.cbGenero.Items.AddRange(new object[] {
-            "Accion",
-            "Comedia",
-            "Drama",
-            "Romance",
-            "Aventura",
-            "Concierto",
-            "Misterio",
-            "Sustpenso",
-            "Ciencia Ficcion",
-            "Fantasia",
-            "Documental",
-            "Musicales",
-            "Terror"});
-            this.cbGenero.Location = new System.Drawing.Point(515, 51);
-            this.cbGenero.Name = "cbGenero";
-            this.cbGenero.Size = new System.Drawing.Size(211, 37);
-            this.cbGenero.TabIndex = 75;
             // 
             // UpdatePelicula
             // 

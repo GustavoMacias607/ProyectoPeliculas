@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.DTPFechaRenta = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.DGVPel = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -54,10 +55,8 @@
             this.CbPeliculas = new System.Windows.Forms.ComboBox();
             this.DTPFechaDevolucion = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVPel)).BeginInit();
@@ -207,19 +206,29 @@
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label9);
             this.panel4.Location = new System.Drawing.Point(28, 214);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(959, 442);
             this.panel4.TabIndex = 75;
             this.panel4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.label10.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Location = new System.Drawing.Point(571, 191);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(229, 29);
+            this.label10.TabIndex = 79;
+            this.label10.Text = "Peliculas de la Renta:";
+            // 
             // btnMostrar
             // 
             this.btnMostrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnMostrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMostrar.Image = ((System.Drawing.Image)(resources.GetObject("btnMostrar.Image")));
-            this.btnMostrar.Location = new System.Drawing.Point(835, 71);
+            this.btnMostrar.Location = new System.Drawing.Point(835, 86);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(48, 48);
             this.btnMostrar.TabIndex = 78;
@@ -228,14 +237,18 @@
             // 
             // DGVPel
             // 
+            this.DGVPel.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVPel.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGVPel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVPel.Location = new System.Drawing.Point(889, 22);
+            this.DGVPel.Location = new System.Drawing.Point(900, 22);
             this.DGVPel.Name = "DGVPel";
+            this.DGVPel.ReadOnly = true;
             this.DGVPel.RowHeadersWidth = 51;
             this.DGVPel.RowTemplate.Height = 29;
-            this.DGVPel.Size = new System.Drawing.Size(300, 188);
+            this.DGVPel.Size = new System.Drawing.Size(408, 188);
             this.DGVPel.TabIndex = 77;
             this.DGVPel.Visible = false;
+            this.DGVPel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVPel_CellContentClick);
             // 
             // btnEliminar
             // 
@@ -243,7 +256,7 @@
             this.btnEliminar.BackColor = System.Drawing.Color.Red;
             this.btnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(570, 373);
+            this.btnEliminar.Location = new System.Drawing.Point(494, 373);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(54, 53);
             this.btnEliminar.TabIndex = 76;
@@ -268,9 +281,9 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
+            this.lblTotal.BackColor = System.Drawing.Color.SlateGray;
             this.lblTotal.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTotal.Location = new System.Drawing.Point(179, 252);
+            this.lblTotal.Location = new System.Drawing.Point(185, 256);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(37, 29);
             this.lblTotal.TabIndex = 71;
@@ -323,9 +336,12 @@
             // 
             // DGVPeliculas
             // 
+            this.DGVPeliculas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVPeliculas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DGVPeliculas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVPeliculas.Location = new System.Drawing.Point(630, 223);
+            this.DGVPeliculas.Location = new System.Drawing.Point(554, 223);
             this.DGVPeliculas.Name = "DGVPeliculas";
+            this.DGVPeliculas.ReadOnly = true;
             this.DGVPeliculas.RowHeadersWidth = 51;
             this.DGVPeliculas.RowTemplate.Height = 29;
             this.DGVPeliculas.Size = new System.Drawing.Size(282, 203);
@@ -333,6 +349,7 @@
             // 
             // CbPeliculas
             // 
+            this.CbPeliculas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbPeliculas.FormattingEnabled = true;
             this.CbPeliculas.Location = new System.Drawing.Point(630, 40);
             this.CbPeliculas.Name = "CbPeliculas";
@@ -345,6 +362,7 @@
             this.DTPFechaDevolucion.CalendarForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.DTPFechaDevolucion.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(165)))), ((int)(((byte)(141)))));
             this.DTPFechaDevolucion.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
+            this.DTPFechaDevolucion.Enabled = false;
             this.DTPFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTPFechaDevolucion.Location = new System.Drawing.Point(260, 183);
             this.DTPFechaDevolucion.Name = "DTPFechaDevolucion";
@@ -361,17 +379,6 @@
             this.label4.Size = new System.Drawing.Size(226, 29);
             this.label4.TabIndex = 65;
             this.label4.Text = "Fecha de Devolucion:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(179, 262);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 23);
-            this.label9.TabIndex = 74;
-            this.label9.Text = "_______";
             // 
             // button1
             // 
@@ -408,17 +415,6 @@
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(224)))));
-            this.label10.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(654, 191);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(229, 29);
-            this.label10.TabIndex = 79;
-            this.label10.Text = "Peliculas de la Renta:";
             // 
             // AddRenta
             // 
@@ -473,7 +469,6 @@
         private Label label7;
         private TextBox txtCantidad;
         private Label label8;
-        private Label label9;
         private Button button3;
         private Button btnEliminar;
         private DataGridView DGVPel;

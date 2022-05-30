@@ -334,6 +334,7 @@
             // 
             // CbClasificacion
             // 
+            this.CbClasificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbClasificacion.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CbClasificacion.FormattingEnabled = true;
             this.CbClasificacion.Items.AddRange(new object[] {
@@ -349,8 +350,10 @@
             // 
             // cbGenero
             // 
+            this.cbGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGenero.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbGenero.FormattingEnabled = true;
+            this.cbGenero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cbGenero.Items.AddRange(new object[] {
             "Accion",
             "Comedia",
@@ -359,7 +362,7 @@
             "Aventura",
             "Concierto",
             "Misterio",
-            "Sustpenso",
+            "Suspenso",
             "Ciencia Ficcion",
             "Fantasia",
             "Documental",

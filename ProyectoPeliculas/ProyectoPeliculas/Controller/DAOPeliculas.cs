@@ -76,7 +76,7 @@ namespace ProyectoPeliculas.Controller
         public DataTable MostarPel()
         {
 
-            string sentencia = "Select Nombre,CantidadPeliculasDisponibles from peliculas.pelis where Estatus = 1";
+            string sentencia = "Select Nombre,CantidadPeliculasDisponibles,PreciodeRenta from peliculas.pelis where Estatus = 1";
             DataTable datos = new DataTable();
             MySqlDataAdapter adaptador = new MySqlDataAdapter();
             cone.Close();
@@ -176,8 +176,8 @@ namespace ProyectoPeliculas.Controller
             {
                 string sentencia =
                     "UPDATE peliculas.pelis SET Nombre = '"+ pelicula.Nombre +
-                    "',Duracion='" + pelicula.Clasificacion +
-                    "',Clasificacion='" + pelicula.Duracion +
+                    "',Duracion='" + pelicula.Duracion+
+                    "',Clasificacion='" + pelicula.Clasificacion +
                     "',CantidadPeliculasDisponibles=" + pelicula.PeliculasDisponibles +
                     ",PreciodeRenta=" + pelicula.Precio +
                     ",Genero='" + pelicula.Genero +

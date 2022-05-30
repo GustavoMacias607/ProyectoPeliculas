@@ -77,6 +77,7 @@
             // 
             // cbFiltro
             // 
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
@@ -87,7 +88,6 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(225, 37);
             this.cbFiltro.TabIndex = 84;
-            this.cbFiltro.Text = "Disponibles";
             this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
             // 
             // button1
@@ -110,9 +110,12 @@
             // 
             // dgvRentas
             // 
+            this.dgvRentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvRentas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRentas.Location = new System.Drawing.Point(36, 286);
             this.dgvRentas.Name = "dgvRentas";
+            this.dgvRentas.ReadOnly = true;
             this.dgvRentas.RowHeadersWidth = 51;
             this.dgvRentas.RowTemplate.Height = 29;
             this.dgvRentas.Size = new System.Drawing.Size(951, 398);

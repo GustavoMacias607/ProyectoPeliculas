@@ -134,7 +134,6 @@ namespace ProyectoPeliculas
             txtNombre.Text = "";
             cbGenero.Text = "";
             txtDirector.Text = "";
-            CbClasificacion.Text = "";
             txtDuracion.Text = "";
             txtPrecio.Text = "";
             txtPeliculasDisponibles.Text = "";

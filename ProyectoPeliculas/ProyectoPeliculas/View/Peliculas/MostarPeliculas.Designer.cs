@@ -125,9 +125,12 @@
             // 
             // dgvPeliculas
             // 
+            this.dgvPeliculas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvPeliculas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPeliculas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPeliculas.Location = new System.Drawing.Point(36, 286);
             this.dgvPeliculas.Name = "dgvPeliculas";
+            this.dgvPeliculas.ReadOnly = true;
             this.dgvPeliculas.RowHeadersWidth = 51;
             this.dgvPeliculas.RowTemplate.Height = 29;
             this.dgvPeliculas.Size = new System.Drawing.Size(951, 398);
@@ -154,6 +157,7 @@
             // 
             // cbFiltro
             // 
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFiltro.Font = new System.Drawing.Font("Sitka Small", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbFiltro.FormattingEnabled = true;
             this.cbFiltro.Items.AddRange(new object[] {
@@ -164,7 +168,6 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(225, 37);
             this.cbFiltro.TabIndex = 1;
-            this.cbFiltro.Text = "Disponibles";
             this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
             // 
             // label2

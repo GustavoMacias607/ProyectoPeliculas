@@ -60,39 +60,47 @@ namespace ProyectoPeliculas
                 else
                 {
 
-
-                    DAOPeliculas dao = new DAOPeliculas();
-
-                    DTOPeliculas pelicula = new DTOPeliculas()
+                    if (int.Parse(txtPrecio.Text) <= 0)
                     {
-                        Nombre = txtNombre.Text,
-                        Duracion = txtDuracion.Text,
-                        Clasificacion = CbClasificacion.Text,
-                        PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
-                        Precio = Convert.ToDouble(txtPrecio.Text),
-                        Genero = cbGenero.Text,
-                        AnoLanzamiento = DTPAnoLanzamiento.Value,
-                        Director = txtDirector.Text
-
-
-                    };
-
-                    bool resultado = dao.agregar(pelicula);
-                    if (resultado)
-                    {
-
-                        limpiarDatos();
-
-
+                        MessageBox.Show("Ingrese un Precio mayor a 0");
                     }
                     else
                     {
-                        limpiarDatos();
+
+
+                        DAOPeliculas dao = new DAOPeliculas();
+
+                        DTOPeliculas pelicula = new DTOPeliculas()
+                        {
+                            Nombre = txtNombre.Text,
+                            Duracion = txtDuracion.Text,
+                            Clasificacion = CbClasificacion.Text,
+                            PeliculasDisponibles = int.Parse(txtPeliculasDisponibles.Text),
+                            Precio = Convert.ToDouble(txtPrecio.Text),
+                            Genero = cbGenero.Text,
+                            AnoLanzamiento = DTPAnoLanzamiento.Value,
+                            Director = txtDirector.Text
+
+
+                        };
+
+                        bool resultado = dao.agregar(pelicula);
+                        if (resultado)
+                        {
+
+                            limpiarDatos();
+
+
+                        }
+                        else
+                        {
+                            limpiarDatos();
+
+                        }
+
+
 
                     }
-
-
-
                 }
             }
             catch (Exception)

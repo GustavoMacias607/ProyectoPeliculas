@@ -110,8 +110,8 @@ namespace ProyectoPeliculas
                 DTOPeliculas peliculas = new DTOPeliculas();
                 peliculas.IdPeliculas = int.Parse(dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[0].Value.ToString());
                 peliculas.Nombre = dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[1].Value.ToString();
-                peliculas.Clasificacion = dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[2].Value.ToString();
-                peliculas.Duracion = dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[3].Value.ToString();
+                peliculas.Duracion = dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[2].Value.ToString();
+                peliculas.Clasificacion = dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[3].Value.ToString();
                 peliculas.PeliculasDisponibles = int.Parse(dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[4].Value.ToString());
                 peliculas.Precio = double.Parse(dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[5].Value.ToString());
                 peliculas.Genero = dgvPeliculas.Rows[dgvPeliculas.CurrentRow.Index].Cells[6].Value.ToString();

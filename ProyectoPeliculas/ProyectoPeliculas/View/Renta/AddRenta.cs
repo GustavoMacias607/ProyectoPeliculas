@@ -492,5 +492,10 @@ namespace ProyectoPeliculas
                 DGVPel.Visible = false;
             }
         }
+
+        private void DGVPel_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
