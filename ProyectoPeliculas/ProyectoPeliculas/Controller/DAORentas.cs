@@ -13,7 +13,7 @@ namespace ProyectoPeliculas.Controller.Rentas
     {
 
 
-        #region
+        #region Pruebas Unitarias
 
         public bool agregarUni(string sentencia)
         {
@@ -136,6 +136,9 @@ namespace ProyectoPeliculas.Controller.Rentas
         }
 
         #endregion
+
+
+        #region Mostrar Datos
         public DataTable MostrarRentasActivas()
         {
 
@@ -193,106 +196,6 @@ namespace ProyectoPeliculas.Controller.Rentas
             return datos;
 
         }
-        public bool agregar(DTORentas renta)
-        {
-
-            BaseDatos bd = new BaseDatos();
-            bd.Conexion();
-            bool result = false;
-            try
-            {
-                string sentencia =
-                    "INSERT INTO peliculas.rentas VALUES(0,  " +
-                    "'" + renta.Nombre +
-                    "','" + renta.FechaRenta.ToString("yyyy/MM/dd") +
-                    "','" + renta.FechaDevolucion.ToString("yyyy/MM/dd") + 
-                     "'," + renta.TotalPagar + ",1)";
-
-                bool res = bd.insertarDatos(sentencia);
-                if (res)
-                {
-
-                    Console.WriteLine("Insertado correctamente");
-                }
-                else
-                {
-                    Console.WriteLine("hubo un error");
-                }
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                result = false;
-
-            }
-            return result;
-
-        }
-        public bool IdPeliculas(DTORentas renta)
-        {
-
-            BaseDatos bd = new BaseDatos();
-            bd.Conexion();
-            bool result = false;
-            try
-            {
-                string sentencia =
-                    "INSERT INTO peliculas.auxrentas VALUES(" + renta.idRentaAux +
-                     "," + renta.idPeliculaRentada + 
-                     "," + renta.Cantidad + ",1)";
-                     
-
-                bool res = bd.insertarDatos(sentencia);
-                if (res)
-                {
-
-                    Console.WriteLine("Insertado correctamente");
-                }
-                else
-                {
-                    Console.WriteLine("hubo un error");
-                }
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                result = false;
-
-            }
-            return result;
-        }
-        public bool IdRentasAux(DTORentas renta)
-        {
-            int aux = (renta.idRentaAux + 1);
-            BaseDatos bd = new BaseDatos();
-            bd.Conexion();
-            bool result = false;
-            try
-            {
-                string sentencia =
-                    "UPDATE peliculas.indicerentasaux SET IdRentasAux=" + aux;
-
-                bool res = bd.insertarDatos(sentencia);
-                if (res)
-                {
-
-                    Console.WriteLine("Insertado correctamente");
-                }
-                else
-                {
-                    Console.WriteLine("hubo un error");
-                }
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                result = false;
-
-            }
-            return result;
-        }
-       
-
         public DataTable IndiceAuxRentas()
         {
 
@@ -309,8 +212,8 @@ namespace ProyectoPeliculas.Controller.Rentas
         }
         public DataTable MostarAux(DTORentas id)
         {
-            
-            string sentencia = "Select IdRentas,Nombre,Cantidad,Activo from peliculas.auxrentas,peliculas.pelis,peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and IdRentas = IdRentasAux and IdPelicula = IdPeliculas and Activo = 1"; 
+
+            string sentencia = "Select IdRentas,Nombre,Cantidad,Activo from peliculas.auxrentas,peliculas.pelis,peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and IdRentas = IdRentasAux and IdPelicula = IdPeliculas and Activo = 1";
             DataTable datos = new DataTable();
             MySqlDataAdapter adaptador = new MySqlDataAdapter();
             cone.Close();
@@ -334,38 +237,6 @@ namespace ProyectoPeliculas.Controller.Rentas
             adaptador.Fill(datos);
             cone.Close();
             return datos;
-        }
-
-        public bool Modificar(DTORentas renta)
-        {
-
-            BaseDatos bd = new BaseDatos();
-            bd.Conexion();
-            bool result = false;
-            try
-            {
-                String sentencia = 
-                    "UPDATE peliculas.auxrentas SET Cantidad = 0, Activo = 0 where IdPeliculas = " + renta.idPeliculaRentada + " and IdRentas = " + renta.idRentaAux;
-
-                bool res = bd.insertarDatos(sentencia);
-                bd.Cerrar();
-                if (res)
-                {
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                result = false;
-
-            }
-            return result;
         }
         public DataTable PrecioTotal(DTORentas id)
         {
@@ -411,6 +282,149 @@ namespace ProyectoPeliculas.Controller.Rentas
             cone.Close();
             return datos;
         }
+        #endregion
+
+
+        #region Agregar Datos
+        public bool agregar(DTORentas renta)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                string sentencia =
+                    "INSERT INTO peliculas.rentas VALUES(0,  " +
+                    "'" + renta.Nombre +
+                    "','" + renta.FechaRenta.ToString("yyyy/MM/dd") +
+                    "','" + renta.FechaDevolucion.ToString("yyyy/MM/dd") +
+                     "'," + renta.TotalPagar + ",1)";
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Insertado correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+
+        }
+        public bool IdPeliculas(DTORentas renta)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                string sentencia =
+                    "INSERT INTO peliculas.auxrentas VALUES(" + renta.idRentaAux +
+                     "," + renta.idPeliculaRentada +
+                     "," + renta.Cantidad + ",1)";
+
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Insertado correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+
+        #endregion
+
+
+        #region Modificar Datos
+        public bool IdRentasAux(DTORentas renta)
+        {
+            int aux = (renta.idRentaAux + 1);
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                string sentencia =
+                    "UPDATE peliculas.indicerentasaux SET IdRentasAux=" + aux;
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Insertado correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+
+
+
+
+        public bool Modificar(DTORentas renta)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                String sentencia =
+                    "UPDATE peliculas.auxrentas SET Cantidad = 0, Activo = 0 where IdPeliculas = " + renta.idPeliculaRentada + " and IdRentas = " + renta.idRentaAux;
+
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+
         public bool ModificarCantidad(int cant, int id)
         {
 
@@ -442,45 +456,52 @@ namespace ProyectoPeliculas.Controller.Rentas
             }
             return result;
         }
-        
 
-    
-    public bool ModificarRenta(DTORentas renta)
-    {
 
-        BaseDatos bd = new BaseDatos();
-        bd.Conexion();
-        bool result = false;
-        try
+
+        public bool ModificarRenta(DTORentas renta)
         {
-            string sentencia =
-                "UPDATE peliculas.rentas SET NombreCliente = '" + renta.Nombre +
-                "',FechaRenta='" + renta.FechaRenta.ToString("yyyy/MM/dd") +
-                "',FechaDevolucion='" + renta.FechaDevolucion.ToString("yyyy/MM/dd") +
-                "',TotalPagar=" + renta.TotalPagar +
-                ",Activa=" + renta.Estatus +
-                " WHERE IdRenta = " + renta.idRenta;
 
-            bool res = bd.insertarDatos(sentencia);
-            bd.Cerrar();
-            if (res)
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
             {
+                string sentencia =
+                    "UPDATE peliculas.rentas SET NombreCliente = '" + renta.Nombre +
+                    "',FechaRenta='" + renta.FechaRenta.ToString("yyyy/MM/dd") +
+                    "',FechaDevolucion='" + renta.FechaDevolucion.ToString("yyyy/MM/dd") +
+                    "',TotalPagar=" + renta.TotalPagar +
+                    ",Activa=" + renta.Estatus +
+                    " WHERE IdRenta = " + renta.idRenta;
 
-                return true;
+                bool res = bd.insertarDatos(sentencia);
+                bd.Cerrar();
+                if (res)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+                result = false;
+
             }
-
+            return result;
         }
-        catch (Exception ex)
-        {
-            result = false;
 
-        }
-        return result;
+        #endregion
+
+
+
+
+
     }
-}
 
 }

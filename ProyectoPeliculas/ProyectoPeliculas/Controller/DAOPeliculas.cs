@@ -134,6 +134,8 @@ namespace ProyectoPeliculas.Controller
         }
         #endregion
 
+
+        #region Mostrar Datos
         public DataTable DatosDisponibles()
         {
 
@@ -147,56 +149,7 @@ namespace ProyectoPeliculas.Controller
             adaptador.Fill(datos);
             cone.Close();
             return datos;
-            }
-       
-        public bool agregar(DTOPeliculas pelicula)
-        {
-
-            BaseDatos bd = new BaseDatos();
-            bd.Conexion();
-            bool result = false;
-            try
-            {
-                string sentencia =
-                    "INSERT INTO peliculas.pelis VALUES(0,'" +
-                    pelicula.Nombre +
-                    "','" + pelicula.Duracion +
-                    "','" + pelicula.Clasificacion +
-                    "'," + pelicula.PeliculasDisponibles +
-                    "," + pelicula.Precio +
-                    ",'" + pelicula.Genero +
-                    "','" + pelicula.Director +
-                    "','" + pelicula.AnoLanzamiento.ToString("yyyy/MM/dd") +
-                    "'," + "1)";
-
-                bool res = bd.insertarDatos(sentencia);
-                if (res)
-                {
-
-                    Console.WriteLine("Insertado correctamente");
-                }
-                else
-                {
-                    Console.WriteLine("hubo un error");
-                }
-                result = true;
-            }
-            catch (Exception ex)
-            {
-                result = false;
-
-            }
-            return result;
         }
-
-
-
-        ///<summary>
-        ///Metodo para consultar todos los productos activos 
-        ///</summary>
-        ///<param> </param>
-        ///<returns name = "datatable"> Retorna una DataTable con todos los productos </returns>
-
         public DataTable datosDisponibles()
         {
 
@@ -210,7 +163,7 @@ namespace ProyectoPeliculas.Controller
             adaptador.Fill(datos);
             cone.Close();
             return datos;
-            }
+        }
         public DataTable MostarPel()
         {
 
@@ -255,7 +208,7 @@ namespace ProyectoPeliculas.Controller
             return datos;
 
         }
-        public DataTable datosLike(string parametro,string sen)
+        public DataTable datosLike(string parametro, string sen)
         {
 
             string sentencia = "SELECT * FROM peliculas.pelis WHERE Nombre Like '%" + parametro + "%'" + sen;
@@ -304,6 +257,70 @@ namespace ProyectoPeliculas.Controller
             return datos;
 
         }
+        public DataTable MostrarAuxTalcual(DTORentas id)
+        {
+
+            string sentencia = "select IdRentas,IdPeliculas,Cantidad,Activo from peliculas.auxrentas,peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and Activo = 1";
+            DataTable datos = new DataTable();
+            MySqlDataAdapter adaptador = new MySqlDataAdapter();
+            cone.Close();
+            cone.ConnectionString = CadenaConexion;
+            cone.Open();
+            adaptador = new MySqlDataAdapter(sentencia, cone);
+            adaptador.Fill(datos);
+            cone.Close();
+            return datos;
+        }
+
+        #endregion
+
+
+        #region Agregar Datos
+        public bool agregar(DTOPeliculas pelicula)
+        {
+
+            BaseDatos bd = new BaseDatos();
+            bd.Conexion();
+            bool result = false;
+            try
+            {
+                string sentencia =
+                    "INSERT INTO peliculas.pelis VALUES(0,'" +
+                    pelicula.Nombre +
+                    "','" + pelicula.Duracion +
+                    "','" + pelicula.Clasificacion +
+                    "'," + pelicula.PeliculasDisponibles +
+                    "," + pelicula.Precio +
+                    ",'" + pelicula.Genero +
+                    "','" + pelicula.Director +
+                    "','" + pelicula.AnoLanzamiento.ToString("yyyy/MM/dd") +
+                    "'," + "1)";
+
+                bool res = bd.insertarDatos(sentencia);
+                if (res)
+                {
+
+                    Console.WriteLine("Insertado correctamente");
+                }
+                else
+                {
+                    Console.WriteLine("hubo un error");
+                }
+                result = true;
+            }
+            catch (Exception ex)
+            {
+                result = false;
+
+            }
+            return result;
+        }
+
+
+        #endregion
+
+
+        #region Modificar Datos
         public bool Modificar(DTOPeliculas pelicula)
         {
 
@@ -313,8 +330,8 @@ namespace ProyectoPeliculas.Controller
             try
             {
                 string sentencia =
-                    "UPDATE peliculas.pelis SET Nombre = '"+ pelicula.Nombre +
-                    "',Duracion='" + pelicula.Duracion+
+                    "UPDATE peliculas.pelis SET Nombre = '" + pelicula.Nombre +
+                    "',Duracion='" + pelicula.Duracion +
                     "',Clasificacion='" + pelicula.Clasificacion +
                     "',CantidadPeliculasDisponibles=" + pelicula.PeliculasDisponibles +
                     ",PreciodeRenta=" + pelicula.Precio +
@@ -335,7 +352,7 @@ namespace ProyectoPeliculas.Controller
                 {
                     return false;
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -344,20 +361,7 @@ namespace ProyectoPeliculas.Controller
             }
             return result;
         }
-        public DataTable MostrarAuxTalcual(DTORentas id)
-        {
 
-            string sentencia = "select IdRentas,IdPeliculas,Cantidad,Activo from peliculas.auxrentas,peliculas.indicerentasaux where IdRentas =" + id.idRentaAux + " and Activo = 1";
-            DataTable datos = new DataTable();
-            MySqlDataAdapter adaptador = new MySqlDataAdapter();
-            cone.Close();
-            cone.ConnectionString = CadenaConexion;
-            cone.Open();
-            adaptador = new MySqlDataAdapter(sentencia, cone);
-            adaptador.Fill(datos);
-            cone.Close();
-            return datos;
-        }
         public bool ModificarEstatus()
         {
 
@@ -421,5 +425,17 @@ namespace ProyectoPeliculas.Controller
             }
             return result;
         }
+
+
+        #endregion
+
+
+
+
+       
+
+
+
     }
+
 }

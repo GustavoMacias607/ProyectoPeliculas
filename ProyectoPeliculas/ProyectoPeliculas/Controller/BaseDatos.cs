@@ -44,6 +44,8 @@ namespace ProyectoPeliculas.Controller
 
 
         #endregion
+
+
         public void Conexion()
         {
             try

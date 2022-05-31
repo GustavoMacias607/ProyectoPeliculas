@@ -122,7 +122,7 @@
             this.label11.Size = new System.Drawing.Size(110, 29);
             this.label11.TabIndex = 51;
             this.label11.Text = "Películas:";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
+          
             // 
             // txtNombre
             // 
@@ -288,7 +288,7 @@
             this.lblTotal.Size = new System.Drawing.Size(37, 29);
             this.lblTotal.TabIndex = 71;
             this.lblTotal.Text = "10";
-            this.lblTotal.Click += new System.EventHandler(this.label8_Click);
+            
             // 
             // txtCantidad
             // 
@@ -355,7 +355,7 @@
             this.CbPeliculas.Name = "CbPeliculas";
             this.CbPeliculas.Size = new System.Drawing.Size(212, 28);
             this.CbPeliculas.TabIndex = 66;
-            this.CbPeliculas.SelectedIndexChanged += new System.EventHandler(this.CbPeliculas_SelectedIndexChanged);
+            
             // 
             // DTPFechaDevolucion
             // 
