@@ -20,8 +20,8 @@ namespace PruebasUnitariasRentas
         public void ModificarRenta()
         {
 
-            string sentencia = "UPDATE peliculas.auxrentas SET Cantidad = 10, Activa = 1 where IdPeliculas = 1 and IdRentas = 1";
-            bool correcta = dao.ModificarUni(sentencia);
+            string sentencia = "UPDATE peliculas.rentas SET NombreCliente = 'Pedro', TotalPagar = 10, Activa = 1";
+            bool correcta = dao.ModificarRentaUni(sentencia);
             Assert.AreEqual(true, correcta);
 
         }

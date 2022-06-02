@@ -97,7 +97,7 @@ namespace ProyectoPeliculas.View.Renta
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Seleccione una Renta");
 
             }
         }

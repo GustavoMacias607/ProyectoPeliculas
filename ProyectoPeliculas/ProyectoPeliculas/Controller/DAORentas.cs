@@ -45,7 +45,8 @@ namespace ProyectoPeliculas.Controller.Rentas
             return result;
 
         }
-        public bool ModificarUni(string sentencia)
+
+        public bool ModificarRentaUni(string sentencia)
         {
 
             BaseDatos bd = new BaseDatos();
@@ -53,7 +54,7 @@ namespace ProyectoPeliculas.Controller.Rentas
             bool result = false;
             try
             {
-                
+               
 
                 bool res = bd.insertarDatos(sentencia);
                 bd.Cerrar();
