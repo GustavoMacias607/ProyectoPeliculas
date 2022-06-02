@@ -165,7 +165,7 @@ namespace ProyectoPeliculas
                     {
                         limpiarDatos();
                         mostrarAux();
-                        MessageBox.Show("Se agrego de manera correcta");
+                        MessageBox.Show("Renta agregada Correctamente");
                         limpiarNombre();
                     }
                     else
@@ -194,6 +194,7 @@ namespace ProyectoPeliculas
         private void button2_Click(object sender, EventArgs e)
         {
             CbPeliculas.Items.Clear();
+            limpiarNombre();
             this.Close();
         }
         static int idContPelis = 0;
@@ -323,7 +324,7 @@ namespace ProyectoPeliculas
             }
             catch (Exception)
             {
-                MessageBox.Show("Favor de seleccionar una Opcion");
+                MessageBox.Show("Favor de seleccionar una pelicula para Eliminar");
             }
         }
         private void panel4_MouseMove(object sender, MouseEventArgs e)

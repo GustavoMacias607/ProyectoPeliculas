@@ -118,7 +118,7 @@ namespace ProyectoPeliculas
                         if (resultado)
                         {
                             limpiarDatos();
-                            MessageBox.Show("Se modifico Correctamente el " + pelicula.Nombre);
+                            MessageBox.Show("Se modifico Correctamente la Renta");
 
                         }
                         else
