@@ -259,7 +259,7 @@ namespace ProyectoPeliculas
                 if (resultado)
                 {
                     limpiarDatos();
-                    MessageBox.Show("Se modifico Correctamente el " + renta.Nombre);
+                    MessageBox.Show("Se modifico Correctamente la Renta");
                     limpiarNombre();
 
                 }
@@ -496,7 +496,7 @@ namespace ProyectoPeliculas
             catch (Exception)
             {
 
-                MessageBox.Show("Favor de seleccionar una Opcion");
+                MessageBox.Show("Favor de seleccionar una pelicula para Eliminar");
             }
 
         }

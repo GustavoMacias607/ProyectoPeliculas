@@ -125,7 +125,7 @@ namespace ProyectoPeliculas
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show("Seleccione una Pelicula");
 
             }
         }

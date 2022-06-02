@@ -130,6 +130,7 @@ namespace ProyectoPeliculas
 
         private void button2_Click(object sender, EventArgs e)
         {
+            limpiarDatos();
             this.Close();
         }
 
